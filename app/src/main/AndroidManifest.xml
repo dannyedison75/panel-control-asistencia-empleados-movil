@@ -13,6 +13,18 @@
         android:theme="@style/Theme.Panelcontrolasistenciaempleadosmovil"
         tools:targetApi="31">
         <activity
+            android:name=".ConfigActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AddEmployeeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EmployeeListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EmployeePanelActivity"
+            android:exported="false" />
+        <activity
             android:name=".InicioActivity"
             android:exported="false" />
         <activity
