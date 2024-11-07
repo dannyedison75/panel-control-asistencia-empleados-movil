@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/fondo"
-    tools:context=".AddEmployeeActivity">
+    tools:context=".EditEmployeeActivity">
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
@@ -21,7 +21,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="88dp"
-        android:text="Crear Empleado"
+        android:text="Editar Empleado"
         android:textAlignment="center"
         android:textColor="#C103035E"
         android:textSize="24sp"
@@ -33,8 +33,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.06"
         tools:ignore="HardcodedText"/>
-
-
 
     <EditText
         android:id="@+id/direccion"
@@ -164,7 +162,7 @@
         android:layout_marginTop="16dp"
         android:backgroundTint="#673AB7"
         android:drawableEnd="@android:drawable/ic_menu_send"
-        android:text="        Crear"
+        android:text="        Enviar"
         android:textColor="#EFEDED"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -179,5 +177,4 @@
         android:layout_height="wrap_content"
         app:menu="@menu/bottom_nav_menu"
         app:layout_constraintBottom_toBottomOf="parent" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>
