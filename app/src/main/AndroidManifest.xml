@@ -13,6 +13,9 @@
         android:theme="@style/Theme.Panelcontrolasistenciaempleadosmovil"
         tools:targetApi="31">
         <activity
+            android:name=".EditEmployeeActivity"
+            android:exported="false" />
+        <activity
             android:name=".ConfigActivity"
             android:exported="false" />
         <activity
