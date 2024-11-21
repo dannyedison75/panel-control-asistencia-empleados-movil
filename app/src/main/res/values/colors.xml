@@ -7,4 +7,7 @@
     <color name="purple_dark_light">#9C27B0</color>
     <color name="purple_dark_red">#8E24AA</color>
     <color name="purple_dark_grayish">#6A1B9A</color>
+    <color name="colorNaranja">#FFA500</color>
+    <color name="colorRojo">#FF0000</color>
+
 </resources>

@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <!-- Permisos necesarios -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -13,31 +17,28 @@
         android:theme="@style/Theme.Panelcontrolasistenciaempleadosmovil"
         tools:targetApi="31">
         <activity
-            android:name=".EditEmployeeActivity"
+            android:name="com.example.panel_control_asistencia_empleados_movil.EditEmployeeActivity"
             android:exported="false" />
         <activity
-            android:name=".ConfigActivity"
+            android:name="com.example.panel_control_asistencia_empleados_movil.ConfigActivity"
             android:exported="false" />
         <activity
-            android:name=".AddEmployeeActivity"
+            android:name="com.example.panel_control_asistencia_empleados_movil.AddEmployeeActivity"
             android:exported="false" />
         <activity
-            android:name=".EmployeeListActivity"
+            android:name="com.example.panel_control_asistencia_empleados_movil.EmployeeListActivity"
             android:exported="false" />
         <activity
-            android:name=".EmployeePanelActivity"
+            android:name="com.example.panel_control_asistencia_empleados_movil.InicioActivity"
             android:exported="false" />
         <activity
-            android:name=".InicioActivity"
+            android:name="com.example.panel_control_asistencia_empleados_movil.RegisterActivity"
             android:exported="false" />
         <activity
-            android:name=".RegisterActivity"
+            android:name="com.example.panel_control_asistencia_empleados_movil.LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity"
+            android:name="com.example.panel_control_asistencia_empleados_movil.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

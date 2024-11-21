@@ -1,44 +1,64 @@
 package com.example.panel_control_asistencia_empleados_movil;
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.ArrayList;
+import com.example.asistify_mobile.R;
+import com.google.firebase.firestore.FirebaseFirestore;
+
 import java.util.List;
 
-public class EmployeeAdapter extends RecyclerView.Adapter<EmployeeAdapter.EmployeeViewHolder> {
+public class EmployeeAdapter extends RecyclerView.Adapter<EmployeeAdapter.ViewHolder> {
 
-    private List<Employee> employees = new ArrayList<>();
-    private EmployeePanelActivity activity;
+    private List<Employee> employees;
+    private Context context;
 
-    public EmployeeAdapter(EmployeePanelActivity activity) {
-        this.activity = activity;
+    public EmployeeAdapter(List<Employee> employees, Context context) {
+        this.employees = employees;
+        this.context = context;
     }
 
-    // Método para agregar empleados a la lista (de momento, datos de ejemplo)
-    public void setEmployees(List<Employee> employees) {
-        this.employees = employees;
+    public void submitList(List<Employee> list) {
+        if (employees != null) employees.clear();
+        if (list != null) employees.addAll(list);
         notifyDataSetChanged();
     }
 
     @NonNull
     @Override
-    public EmployeeViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.employee_item, parent, false);
-        return new EmployeeViewHolder(view);
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.employee_item, parent, false);
+        return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull EmployeeViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Employee employee = employees.get(position);
-        holder.nameTextView.setText(employee.getName());
-        holder.positionTextView.setText(employee.getPosition());
+        holder.nombre.setText(employee.nombre + " " + employee.apellido);
+        holder.email.setText(employee.email);
+
+        holder.btnEditar.setOnClickListener(v -> {
+            Log.d("EmployeeAdapter", "ID del empleado a editar: " + employee.id); // <-- Agrega esta línea
+            Intent intent = new Intent(context, EditEmployeeActivity.class);
+            intent.putExtra("employee", employee);
+            ((Activity) context).startActivityForResult(intent, 1);
+        });
+
+        holder.btnEliminar.setOnClickListener(v -> {
+            eliminarEmployee(employee.id);
+        });
     }
 
     @Override
@@ -46,29 +66,38 @@ public class EmployeeAdapter extends RecyclerView.Adapter<EmployeeAdapter.Employ
         return employees.size();
     }
 
-    public void filter(String text) {
-        // Aquí debes implementar la lógica para filtrar la lista de empleados
-        // según el texto de búsqueda.
-        // Por ejemplo:
-        List<Employee> filteredList = new ArrayList<>();
-        for (Employee employee : employees) {
-            if (employee.getName().toLowerCase().contains(text.toLowerCase()) ||
-                    employee.getPosition().toLowerCase().contains(text.toLowerCase())) {
-                filteredList.add(employee);
-            }
+    public static class ViewHolder extends RecyclerView.ViewHolder {
+        TextView nombre, email;
+        ImageButton btnEditar, btnEliminar;
+
+        public ViewHolder(@NonNull View itemView) {
+            super(itemView);
+            nombre = itemView.findViewById(R.id.nombreEmployee);
+            email = itemView.findViewById(R.id.emailEmployee);
+            btnEditar = itemView.findViewById(R.id.btnEditar);
+            btnEliminar = itemView.findViewById(R.id.btnEliminar);
         }
-        this.employees = filteredList;
-        notifyDataSetChanged();
     }
 
-    public static class EmployeeViewHolder extends RecyclerView.ViewHolder {
-        public TextView nameTextView;
-        public TextView positionTextView;
-
-        public EmployeeViewHolder(View itemView) {
-            super(itemView);
-            nameTextView = itemView.findViewById(R.id.employeeName);
-            positionTextView = itemView.findViewById(R.id.employeePosition);
-        }
+    private void eliminarEmployee(String employeeId) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setTitle("Confirmar Eliminación")
+                .setMessage("¿Estás seguro de que deseas eliminar este empleado?")
+                .setPositiveButton("Sí", (dialog, which) -> {
+                    FirebaseFirestore db = FirebaseFirestore.getInstance();
+                    db.collection("empleados").document(employeeId)
+                            .delete()
+                            .addOnSuccessListener(aVoid -> {
+                                Toast.makeText(context, "Empleado eliminado", Toast.LENGTH_SHORT).show();
+                                employees.removeIf(employee -> employee.id.equals(employeeId));
+                                notifyDataSetChanged();
+                            })
+                            .addOnFailureListener(e -> {
+                                Toast.makeText(context, "Error al eliminar empleado: " + e.getMessage(), Toast.LENGTH_LONG).show();
+                                Log.e("EmployeeAdapter", "Error al eliminar empleado: ", e); // registra el error en el Log
+                            });
+                })
+                .setNegativeButton("No", null)
+                .show();
     }
 }

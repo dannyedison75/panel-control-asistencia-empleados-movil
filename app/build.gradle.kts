@@ -1,13 +1,14 @@
 plugins {
     alias(libs.plugins.android.application)
+    id("com.google.gms.google-services")
 }
 
 android {
-    namespace = "com.example.panel_control_asistencia_empleados_movil"
+    namespace = "com.example.asistify_mobile"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.panel_control_asistencia_empleados_movil"
+        applicationId = "com.example.asistify_mobile"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
@@ -37,7 +38,12 @@ dependencies {
     implementation(libs.material)
     implementation(libs.activity)
     implementation(libs.constraintlayout)
+    implementation(platform("com.google.firebase:firebase-bom:33.5.1"))
+    implementation("com.google.firebase:firebase-analytics")
+    implementation ("com.google.firebase:firebase-auth")
+    implementation(libs.firebase.firestore)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
+
 }

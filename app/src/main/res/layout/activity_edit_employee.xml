@@ -7,6 +7,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/fondo"
     tools:context=".EditEmployeeActivity">
+
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
@@ -16,6 +17,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:title="Panel de Empleados"
         app:titleTextColor="@android:color/white" />
+
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
@@ -34,27 +36,7 @@
         app:layout_constraintVertical_bias="0.06"
         tools:ignore="HardcodedText"/>
 
-    <EditText
-        android:id="@+id/direccion"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginEnd="40dp"
-        android:backgroundTint="#C103035E"
-        android:hint="Dirección"
-        android:inputType="textEmailAddress"
-        android:selectAllOnFocus="true"
-        android:textColor="#C103035E"
-        android:textColorHint="#C103035E"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.72"
-        tools:ignore="Autofill,HardcodedText,TouchTargetSizeCheck,VisualLintTextFieldSize,TextContrastCheck" />
-
-
+    <!-- Campo Nombre -->
     <EditText
         android:id="@+id/nombre"
         android:layout_width="0dp"
@@ -63,7 +45,7 @@
         android:layout_marginEnd="40dp"
         android:backgroundTint="#C103035E"
         android:hint="Nombre"
-        android:inputType="textEmailAddress"
+        android:inputType="textPersonName"
         android:selectAllOnFocus="true"
         android:textColor="#C103035E"
         android:textColorHint="#C103035E"
@@ -73,17 +55,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.364"
-        tools:ignore="Autofill,HardcodedText,TouchTargetSizeCheck,VisualLintTextFieldSize,TextContrastCheck" />
+        tools:ignore="Autofill,HardcodedText" />
 
+    <!-- Campo Apellido -->
     <EditText
-        android:id="@+id/cedula"
+        android:id="@+id/apellido"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
         android:layout_marginEnd="40dp"
         android:backgroundTint="#C103035E"
-        android:hint="DNI"
-        android:inputType="textEmailAddress"
+        android:hint="Apellido"
+        android:inputType="textPersonName"
         android:selectAllOnFocus="true"
         android:textColor="#C103035E"
         android:textColorHint="#C103035E"
@@ -93,8 +76,51 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.271"
-        tools:ignore="Autofill,HardcodedText,TouchTargetSizeCheck,VisualLintTextFieldSize,TextContrastCheck" />
+        tools:ignore="Autofill,HardcodedText" />
 
+    <!-- Campo Carrera -->
+    <EditText
+        android:id="@+id/carrera"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:backgroundTint="#C103035E"
+        android:hint="Carrera"
+        android:inputType="text"
+        android:selectAllOnFocus="true"
+        android:textColor="#C103035E"
+        android:textColorHint="#C103035E"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.451"
+        tools:ignore="Autofill,HardcodedText" />
+
+    <!-- Campo Edad -->
+    <EditText
+        android:id="@+id/edad"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:backgroundTint="#C103035E"
+        android:hint="Edad"
+        android:inputType="number"
+        android:selectAllOnFocus="true"
+        android:textColor="#C103035E"
+        android:textColorHint="#C103035E"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.635"
+        tools:ignore="Autofill,HardcodedText" />
+
+    <!-- Campo Email -->
     <EditText
         android:id="@+id/email"
         android:layout_width="0dp"
@@ -112,18 +138,19 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.451"
-        tools:ignore="Autofill,HardcodedText,TouchTargetSizeCheck,VisualLintTextFieldSize,TextContrastCheck" />
+        app:layout_constraintVertical_bias="0.545"
+        tools:ignore="Autofill,HardcodedText" />
 
+    <!-- Campo Nivel Educativo -->
     <EditText
-        android:id="@+id/edad"
+        android:id="@+id/nivelEducativo"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
         android:layout_marginEnd="40dp"
         android:backgroundTint="#C103035E"
-        android:hint="Edad"
-        android:inputType="textEmailAddress"
+        android:hint="Nivel Educativo"
+        android:inputType="text"
         android:selectAllOnFocus="true"
         android:textColor="#C103035E"
         android:textColorHint="#C103035E"
@@ -132,29 +159,10 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.635"
-        tools:ignore="Autofill,HardcodedText,TouchTargetSizeCheck,VisualLintTextFieldSize,TextContrastCheck" />
+        app:layout_constraintVertical_bias="0.72"
+        tools:ignore="Autofill,HardcodedText" />
 
-    <EditText
-        android:id="@+id/telefono"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginEnd="40dp"
-        android:backgroundTint="#C103035E"
-        android:hint="Telefono"
-        android:inputType="textEmailAddress"
-        android:selectAllOnFocus="true"
-        android:textColor="#C103035E"
-        android:textColorHint="#C103035E"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.545"
-        tools:ignore="Autofill,HardcodedText,TouchTargetSizeCheck,VisualLintTextFieldSize,TextContrastCheck" />
-
+    <!-- Botón Enviar -->
     <Button
         android:id="@+id/bL1"
         android:layout_width="320dp"
@@ -162,7 +170,7 @@
         android:layout_marginTop="16dp"
         android:backgroundTint="#673AB7"
         android:drawableEnd="@android:drawable/ic_menu_send"
-        android:text="        Enviar"
+        android:text="Enviar"
         android:textColor="#EFEDED"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -170,11 +178,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.817"
-        tools:ignore="HardcodedText,TextContrastCheck,TouchTargetSizeCheck" />
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottomNavigationView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:menu="@menu/bottom_nav_menu"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        tools:ignore="HardcodedText" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
