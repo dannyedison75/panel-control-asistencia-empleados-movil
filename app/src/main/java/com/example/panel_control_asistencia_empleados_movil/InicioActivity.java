@@ -8,6 +8,8 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.example.asistify_mobile.R;
+
 public class InicioActivity extends AppCompatActivity {
 
     @Override
