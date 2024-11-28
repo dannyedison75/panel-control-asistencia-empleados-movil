@@ -27,7 +27,7 @@ import java.util.Map;
 public class AddEmployeeActivity extends AppCompatActivity {
 
     // Variables para los campos EditText
-    private EditText idEditText, nombreEditText, apellidoEditText, carreraEditText, edadEditText, emailEditText, nivelEducativoEditText;
+    private EditText idEditText, nombreEditText, apellidoEditText, ciudadEditText, carreraEditText, edadEditText, emailEditText, nivelEducativoEditText;
     private Button btnEnviar;
 
     @Override
@@ -39,6 +39,7 @@ public class AddEmployeeActivity extends AppCompatActivity {
         idEditText = findViewById(R.id.id);
         nombreEditText = findViewById(R.id.nombre);
         apellidoEditText = findViewById(R.id.apellido);
+        ciudadEditText = findViewById(R.id.ciudad);
         carreraEditText = findViewById(R.id.carrera);
         edadEditText = findViewById(R.id.edad);
         emailEditText = findViewById(R.id.email);
@@ -53,6 +54,7 @@ public class AddEmployeeActivity extends AppCompatActivity {
                 String id = idEditText.getText().toString();
                 String nombre = nombreEditText.getText().toString();
                 String apellido = apellidoEditText.getText().toString();
+                String ciudad = ciudadEditText.getText().toString();
                 String carrera = carreraEditText.getText().toString();
                 int edad = Integer.parseInt(edadEditText.getText().toString());
                 String email = emailEditText.getText().toString();
@@ -62,7 +64,7 @@ public class AddEmployeeActivity extends AppCompatActivity {
                 FirebaseFirestore db = FirebaseFirestore.getInstance();
 
                 String ids = db.collection("empleados").document().getId();
-                Employee empleado = new Employee(id, nombre, apellido, carrera, edad, email, nivelEducativo);
+                Employee empleado = new Employee(id, nombre, apellido, ciudad, carrera, edad, email, nivelEducativo);
 
                 db.collection("empleados").document(id).set(empleado)
                         .addOnSuccessListener(documentReference -> {

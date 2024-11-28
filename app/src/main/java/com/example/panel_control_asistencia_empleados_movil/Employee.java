@@ -7,6 +7,7 @@ public class Employee implements Parcelable {
     public String id;
     public String nombre;
     public String apellido;
+    public String ciudad;
     public String carrera;
     public long edad;
     public String email;
@@ -15,10 +16,11 @@ public class Employee implements Parcelable {
     // Constructor vacío necesario para Firebase
     public Employee() {}
 
-    public Employee(String id, String nombre, String apellido, String carrera, long edad, String email, String nivelEducativo) {
+    public Employee(String id, String nombre, String apellido, String ciudad, String carrera, long edad, String email, String nivelEducativo) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
+        this.ciudad = ciudad;
         this.carrera = carrera;
         this.edad = edad;
         this.email = email;
@@ -29,6 +31,7 @@ public class Employee implements Parcelable {
         id = in.readString();
         nombre = in.readString();
         apellido = in.readString();
+        ciudad = in.readString();
         carrera = in.readString();
         edad = in.readLong();
         email = in.readString();
@@ -59,6 +62,7 @@ public class Employee implements Parcelable {
         dest.writeString(id);
         dest.writeString(nombre);
         dest.writeString(apellido);
+        dest.writeString(ciudad);
         dest.writeString(carrera);
         dest.writeLong(edad);
         dest.writeString(email);
@@ -80,6 +84,14 @@ public class Employee implements Parcelable {
 
     public void setApellido(String apellido) {
         this.apellido = apellido;
+    }
+
+    public String getCiudad() {
+        return ciudad;
+    }
+
+    public void setCiudad(String ciudad) {
+        this.ciudad = ciudad;
     }
 
     public String getCarrera() {
