@@ -27,7 +27,7 @@ import java.util.Map;
 public class AddEmployeeActivity extends AppCompatActivity {
 
     // Variables para los campos EditText
-    private EditText nombreEditText, apellidoEditText, carreraEditText, edadEditText, emailEditText, nivelEducativoEditText;
+    private EditText idEditText, nombreEditText, apellidoEditText, carreraEditText, edadEditText, emailEditText, nivelEducativoEditText;
     private Button btnEnviar;
 
     @Override
@@ -36,6 +36,7 @@ public class AddEmployeeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_add_employee);
 
         // Asignación de las vistas
+        idEditText = findViewById(R.id.id);
         nombreEditText = findViewById(R.id.nombre);
         apellidoEditText = findViewById(R.id.apellido);
         carreraEditText = findViewById(R.id.carrera);
@@ -49,37 +50,31 @@ public class AddEmployeeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Obtener los datos del formulario
+                String id = idEditText.getText().toString();
                 String nombre = nombreEditText.getText().toString();
                 String apellido = apellidoEditText.getText().toString();
                 String carrera = carreraEditText.getText().toString();
-                String edad = edadEditText.getText().toString();
+                int edad = Integer.parseInt(edadEditText.getText().toString());
                 String email = emailEditText.getText().toString();
                 String nivelEducativo = nivelEducativoEditText.getText().toString();
 
                 // Crear un mapa con los datos
-                Map<String, Object> nuevoEmpleado = new HashMap<>();
-                nuevoEmpleado.put("nombre", nombre);
-                nuevoEmpleado.put("apellido", apellido);
-                nuevoEmpleado.put("carrera", carrera);
-                nuevoEmpleado.put("edad", Integer.parseInt(edad));
-                nuevoEmpleado.put("email", email);
-                nuevoEmpleado.put("nivelEducativo", nivelEducativo);
-
-                // Agregar el nuevo empleado a Firestore
                 FirebaseFirestore db = FirebaseFirestore.getInstance();
-                db.collection("empleados")
-                        .add(nuevoEmpleado)
+
+                String ids = db.collection("empleados").document().getId();
+                Employee empleado = new Employee(id, nombre, apellido, carrera, edad, email, nivelEducativo);
+
+                db.collection("empleados").document(id).set(empleado)
                         .addOnSuccessListener(documentReference -> {
-                            // Si es exitoso, redirigir a la lista de empleados
+                            Toast.makeText(AddEmployeeActivity.this, "Usuario agregado", Toast.LENGTH_SHORT).show();
                             Intent listIntent = new Intent(AddEmployeeActivity.this, EmployeeListActivity.class);
                             startActivity(listIntent);
                             finish();
                         })
-                        .addOnFailureListener(e -> {
-                            // Si ocurre un error
-                            Toast.makeText(AddEmployeeActivity.this, "Error al agregar empleado: " + e.getMessage(), Toast.LENGTH_LONG).show();
-                        });
+                        .addOnFailureListener(e -> Toast.makeText(AddEmployeeActivity.this, "Error al agregar usuario", Toast.LENGTH_SHORT).show());
             }
         });
     }
 }
+
+
