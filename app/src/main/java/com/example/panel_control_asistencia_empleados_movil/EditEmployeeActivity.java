@@ -19,7 +19,7 @@ import java.util.Map;
 public class EditEmployeeActivity extends AppCompatActivity {
 
     // Variables para los campos EditText
-    private EditText idEditText, nombreEditText, apellidoEditText, carreraEditText, edadEditText, emailEditText, nivelEducativoEditText;
+    private EditText idEditText, nombreEditText, apellidoEditText, ciudadEditText, carreraEditText, edadEditText, emailEditText, nivelEducativoEditText;
     private Button btnEnviar;
     private FirebaseFirestore db;
     private Employee employee; //Para guardar el objeto empleado
@@ -39,6 +39,7 @@ public class EditEmployeeActivity extends AppCompatActivity {
         idEditText = findViewById(R.id.id);
         nombreEditText = findViewById(R.id.nombre);
         apellidoEditText = findViewById(R.id.apellido);
+        ciudadEditText = findViewById(R.id.ciudad);
         carreraEditText = findViewById(R.id.carrera);
         edadEditText = findViewById(R.id.edad);
         emailEditText = findViewById(R.id.email);
@@ -56,6 +57,7 @@ public class EditEmployeeActivity extends AppCompatActivity {
         idEditText.setText(employee.id);
         nombreEditText.setText(employee.nombre);
         apellidoEditText.setText(employee.apellido);
+        ciudadEditText.setText(employee.ciudad);
         carreraEditText.setText(employee.carrera);
         edadEditText.setText(String.valueOf(employee.edad));
         emailEditText.setText(employee.email);
@@ -71,13 +73,14 @@ public class EditEmployeeActivity extends AppCompatActivity {
         String nuevoId = idEditText.getText().toString();
         String nuevoNombre = nombreEditText.getText().toString();
         String nuevoApellido = apellidoEditText.getText().toString();
+        String nuevoCiudad = ciudadEditText.getText().toString();
         String nuevaCarrera = carreraEditText.getText().toString();
         String nuevaEdadStr = edadEditText.getText().toString();
         String nuevoEmail = emailEditText.getText().toString();
         String nuevoNivelEducativo = nivelEducativoEditText.getText().toString();
 
         //Validación básica de datos
-        if (nuevoNombre.isEmpty() || nuevoApellido.isEmpty() || nuevaCarrera.isEmpty() || nuevoEmail.isEmpty() || nuevoNivelEducativo.isEmpty() || nuevaEdadStr.isEmpty()){
+        if (nuevoId.isEmpty() || nuevoNombre.isEmpty() || nuevoApellido.isEmpty() || nuevoCiudad.isEmpty()|| nuevaCarrera.isEmpty() || nuevoEmail.isEmpty() || nuevoNivelEducativo.isEmpty() || nuevaEdadStr.isEmpty()){
             Toast.makeText(this, "Por favor, llene todos los campos.", Toast.LENGTH_SHORT).show();
             return;
         }
@@ -94,6 +97,7 @@ public class EditEmployeeActivity extends AppCompatActivity {
         employee.id = nuevoId;
         employee.nombre = nuevoNombre;
         employee.apellido = nuevoApellido;
+        employee.ciudad = nuevoCiudad;
         employee.carrera = nuevaCarrera;
         employee.edad = nuevaEdad;
         employee.email = nuevoEmail;
@@ -105,6 +109,7 @@ public class EditEmployeeActivity extends AppCompatActivity {
         updates.put("id", employee.id);
         updates.put("nombre", employee.nombre);
         updates.put("apellido", employee.apellido);
+        updates.put("ciudad", employee.ciudad);
         updates.put("carrera", employee.carrera);
         updates.put("edad", employee.edad);  // Asegúrate de que 'edad' es de tipo Number en Firestore
         updates.put("email", employee.email);

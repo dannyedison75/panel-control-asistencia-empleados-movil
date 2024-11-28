@@ -19,8 +19,6 @@
         app:titleTextColor="@android:color/white" />
 
     <!-- Campo Nombre -->
-
-    <!-- Campo Nombre -->
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
@@ -59,6 +57,7 @@
         app:layout_constraintVertical_bias="0.189"
         tools:ignore="Autofill,HardcodedText" />
 
+    <!-- Campo Nombre -->
     <EditText
         android:id="@+id/nombre"
         android:layout_width="0dp"
@@ -100,7 +99,34 @@
         app:layout_constraintVertical_bias="0.271"
         tools:ignore="Autofill,HardcodedText" />
 
+    <!-- Campo Ciudad -->
+
     <!-- Campo Carrera -->
+
+    <!-- Campo Edad -->
+
+    <!-- Campo Email -->
+
+    <EditText
+        android:id="@+id/ciudad"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:backgroundTint="#C103035E"
+        android:hint="Ciudad"
+        android:inputType="textPersonName"
+        android:selectAllOnFocus="true"
+        android:textColor="#C103035E"
+        android:textColorHint="#C103035E"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.447"
+        tools:ignore="Autofill,HardcodedText" />
+
     <EditText
         android:id="@+id/carrera"
         android:layout_width="0dp"
@@ -115,13 +141,12 @@
         android:textColorHint="#C103035E"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.451"
+        app:layout_constraintVertical_bias="0.527"
         tools:ignore="Autofill,HardcodedText" />
 
-    <!-- Campo Edad -->
     <EditText
         android:id="@+id/edad"
         android:layout_width="0dp"
@@ -136,13 +161,15 @@
         android:textColorHint="#C103035E"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.635"
+        app:layout_constraintVertical_bias="0.699"
         tools:ignore="Autofill,HardcodedText" />
 
-    <!-- Campo Email -->
+    <!-- Campo Nivel Educativo -->
+
+    <!-- Botón Enviar -->
     <EditText
         android:id="@+id/email"
         android:layout_width="0dp"
@@ -160,10 +187,9 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.545"
+        app:layout_constraintVertical_bias="0.615"
         tools:ignore="Autofill,HardcodedText" />
 
-    <!-- Campo Nivel Educativo -->
     <EditText
         android:id="@+id/nivelEducativo"
         android:layout_width="0dp"
@@ -181,10 +207,9 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.72"
+        app:layout_constraintVertical_bias="0.778"
         tools:ignore="Autofill,HardcodedText" />
 
-    <!-- Botón Enviar -->
     <Button
         android:id="@+id/bL1"
         android:layout_width="320dp"
@@ -196,10 +221,10 @@
         android:textColor="#EFEDED"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.817"
+        app:layout_constraintVertical_bias="0.877"
         tools:ignore="HardcodedText" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

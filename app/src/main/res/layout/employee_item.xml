@@ -10,6 +10,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/white"
         android:orientation="horizontal"
         android:padding="16dp">
 
@@ -17,26 +18,29 @@
             android:id="@+id/iconoEmpleado"
             android:layout_width="66dp"
             android:layout_height="69dp"
+            android:adjustViewBounds="true"
             android:src="@drawable/person" />  <!-- Reemplaza con tu icono -->
 
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
             android:layout_weight="1"
-            android:orientation="vertical"
-            android:layout_marginStart="16dp">
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/nombreEmployee"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:textSize="16sp" />
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/emailEmployee"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="@color/black"
                 android:textSize="14sp" />
 
         </LinearLayout>
@@ -45,27 +49,27 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:gravity="center">
+            android:gravity="center"
+            android:orientation="vertical">
 
             <ImageButton
                 android:id="@+id/btnEditar"
                 android:layout_width="49dp"
                 android:layout_height="39dp"
                 android:layout_marginBottom="4dp"
+                android:background="@color/colorNaranja"
+                android:backgroundTint="@color/colorNaranja"
                 android:scaleType="centerInside"
-                android:background="?android:attr/selectableItemBackgroundBorderless"
-                android:src="@drawable/edit"
-                android:backgroundTint="@color/colorNaranja"/>
+                android:src="@drawable/edit" />
 
             <ImageButton
                 android:id="@+id/btnEliminar"
                 android:layout_width="49dp"
                 android:layout_height="36dp"
+                android:background="@color/colorRojo"
+                android:backgroundTint="@color/colorRojo"
                 android:scaleType="centerInside"
-                android:background="?android:attr/selectableItemBackgroundBorderless"
-                android:src="@drawable/delete"
-                android:backgroundTint="@color/colorRojo"/>
+                android:src="@drawable/delete" />
 
         </LinearLayout>
 
