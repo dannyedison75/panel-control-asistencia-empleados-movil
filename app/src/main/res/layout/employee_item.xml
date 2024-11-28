@@ -60,7 +60,8 @@
                 android:background="@color/colorNaranja"
                 android:backgroundTint="@color/colorNaranja"
                 android:scaleType="centerInside"
-                android:src="@drawable/edit" />
+                android:src="@drawable/edit"
+                android:tint="@color/white" />
 
             <ImageButton
                 android:id="@+id/btnEliminar"
@@ -69,7 +70,8 @@
                 android:background="@color/colorRojo"
                 android:backgroundTint="@color/colorRojo"
                 android:scaleType="centerInside"
-                android:src="@drawable/delete" />
+                android:src="@drawable/delete"
+                android:tint="@color/white" />
 
         </LinearLayout>
 
