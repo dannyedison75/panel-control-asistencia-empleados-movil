@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "114838653428",
-    "project_id": "sistema-empleados-dos",
-    "storage_bucket": "sistema-empleados-dos.firebasestorage.app"
+    "project_number": "358378447111",
+    "project_id": "panel-de-sistema-de-empleados",
+    "storage_bucket": "panel-de-sistema-de-empleados.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:114838653428:android:6502a3494e30d8c254d1a1",
+        "mobilesdk_app_id": "1:358378447111:android:025e6306dcad78423d65a2",
         "android_client_info": {
           "package_name": "com.example.asistify_mobile"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyBV8cry7Ppgb0o6SYpVuV0xc-ppaWxjRhY"
+          "current_key": "AIzaSyCrTEV-ZjUL_RV3KAnMF7dtlIDSq9ZMOHE"
         }
       ],
       "services": {
