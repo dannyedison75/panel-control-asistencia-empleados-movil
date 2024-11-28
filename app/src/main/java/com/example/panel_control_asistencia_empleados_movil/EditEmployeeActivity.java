@@ -19,7 +19,7 @@ import java.util.Map;
 public class EditEmployeeActivity extends AppCompatActivity {
 
     // Variables para los campos EditText
-    private EditText nombreEditText, apellidoEditText, carreraEditText, edadEditText, emailEditText, nivelEducativoEditText;
+    private EditText idEditText, nombreEditText, apellidoEditText, carreraEditText, edadEditText, emailEditText, nivelEducativoEditText;
     private Button btnEnviar;
     private FirebaseFirestore db;
     private Employee employee; //Para guardar el objeto empleado
@@ -36,6 +36,7 @@ public class EditEmployeeActivity extends AppCompatActivity {
         employee = getIntent().getParcelableExtra("employee");
 
         // Asignación de las vistas
+        idEditText = findViewById(R.id.id);
         nombreEditText = findViewById(R.id.nombre);
         apellidoEditText = findViewById(R.id.apellido);
         carreraEditText = findViewById(R.id.carrera);
@@ -52,6 +53,7 @@ public class EditEmployeeActivity extends AppCompatActivity {
         }
 
         // Rellenar los campos con los datos del objeto Employee
+        idEditText.setText(employee.id);
         nombreEditText.setText(employee.nombre);
         apellidoEditText.setText(employee.apellido);
         carreraEditText.setText(employee.carrera);
@@ -66,6 +68,7 @@ public class EditEmployeeActivity extends AppCompatActivity {
 
     private void actualizarEmpleado() {
         // Obtener los nuevos datos de los campos ANTES de actualizar el objeto employee
+        String nuevoId = idEditText.getText().toString();
         String nuevoNombre = nombreEditText.getText().toString();
         String nuevoApellido = apellidoEditText.getText().toString();
         String nuevaCarrera = carreraEditText.getText().toString();
@@ -88,6 +91,7 @@ public class EditEmployeeActivity extends AppCompatActivity {
         }
 
         //Actualizar el objeto employee CON los nuevos datos
+        employee.id = nuevoId;
         employee.nombre = nuevoNombre;
         employee.apellido = nuevoApellido;
         employee.carrera = nuevaCarrera;
@@ -98,6 +102,7 @@ public class EditEmployeeActivity extends AppCompatActivity {
         // Actualizar los datos en Firestore usando update()
         DocumentReference empleadoRef = db.collection("empleados").document(employee.id);
         Map<String, Object> updates = new HashMap<>();
+        updates.put("id", employee.id);
         updates.put("nombre", employee.nombre);
         updates.put("apellido", employee.apellido);
         updates.put("carrera", employee.carrera);

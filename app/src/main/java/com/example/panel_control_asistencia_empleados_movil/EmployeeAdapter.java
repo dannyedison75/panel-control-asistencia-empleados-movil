@@ -89,8 +89,8 @@ public class EmployeeAdapter extends RecyclerView.Adapter<EmployeeAdapter.ViewHo
                             .delete()
                             .addOnSuccessListener(aVoid -> {
                                 Toast.makeText(context, "Empleado eliminado", Toast.LENGTH_SHORT).show();
-                                employees.removeIf(employee -> employee.id.equals(employeeId));
-                                notifyDataSetChanged();
+                                //employees.removeIf(employee -> employee.id.equals(employeeId));
+                                //notifyDataSetChanged();
                             })
                             .addOnFailureListener(e -> {
                                 Toast.makeText(context, "Error al eliminar empleado: " + e.getMessage(), Toast.LENGTH_LONG).show();
